@@ -3,6 +3,11 @@ const express = require("express");
 const { appendFile } = require("fs");
 
 const app = express();
+
+const cors = require('cors');
+app.use(cors({
+  origin: '*'
+}));
 /*
 const API_URL = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/';
 

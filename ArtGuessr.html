@@ -30,22 +30,20 @@
     var backend_url = 'localhost:3000'
     var image_url = "https://media0.giphy.com/media/l1K9Dcy7ww0CW3JHq/giphy.gif"
     var answer = "Algeria"
+    var new_game;
     async function get_game() {
-        console.log("fetchstart")
-        const response = await fetch('/');
-        console.log("midfetch")
-        const data = await response.json();
-        console.log("postfetch")
-        new_game = JSON.parse(data);
+        const response = await fetch('http://localhost:3000/');
+        const new_game = await response.json();
         image_url = new_game.image;
         answer = new_game.solution;
-    }   
-
-    function start() {
         var new_art_image = new_game.image;
         var new_art_answer = new_game.solution;
         document.getElementById("art").src = new_art_image;
         answer = new_art_answer;
+    }   
+
+    function start() {
+        
     }
 
     function check_guess(guess) {
